@@ -11,6 +11,7 @@ export const pool: Pool = mariadb.createPool({
   user: env.mariadb.user,
   password: env.mariadb.password,
   database: env.mariadb.database,
+  ssl: env.mariadb.ssl ? { rejectUnauthorized: false } : undefined,
   connectionLimit: 5,
   dateStrings: true,
 });

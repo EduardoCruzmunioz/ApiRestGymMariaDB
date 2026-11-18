@@ -8,6 +8,7 @@ let envMariaPort = process.env.MARIADB_PORT;
 let envMariaUser = process.env.MARIADB_USER || process.env.MARIADB_USERNAME;
 let envMariaPassword = process.env.MARIADB_PASSWORD;
 let envMariaDatabase = process.env.MARIADB_DATABASE;
+let envMariaSsl = process.env.MARIADB_SSL;
 
 const envPath = path.resolve(import.meta.dirname, ".env");
 if (existsSync(envPath)) {
@@ -30,6 +31,8 @@ if (existsSync(envPath)) {
         envMariaPassword = val;
       if (k === "MARIADB_DATABASE" && !envMariaDatabase)
         envMariaDatabase = val;
+      if (k === "MARIADB_SSL" && !envMariaSsl)
+        envMariaSsl = val;
     }
   }
 }
@@ -43,5 +46,6 @@ export const env = {
     user: envMariaUser || "root",
     password: envMariaPassword || "root",
     database: envMariaDatabase || "mi_base",
+    ssl: envMariaSsl === "true" || envMariaSsl === "1",
   },
 };
