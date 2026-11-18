@@ -1,0 +1,193 @@
+{
+  "info": {
+    "name": "ApiRestGym MariaDB",
+    "description": "Colección completa de endpoints para pruebas en Postman (Local y Producción en Render)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://apirestgym-mariadb.onrender.com",
+      "type": "string"
+    },
+    {
+      "key": "apiKey",
+      "value": "EduApiKey",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Workouts",
+      "item": [
+        {
+          "name": "1. Obtener todos los Workouts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/workouts",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "workouts"]
+            }
+          }
+        },
+        {
+          "name": "2. Obtener Workout por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/workouts/4a3a9acf-c2ec-4600-a457-3f1bfa52618b",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "workouts", "4a3a9acf-c2ec-4600-a457-3f1bfa52618b"]
+            }
+          }
+        },
+        {
+          "name": "3. Crear nuevo Workout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{apiKey}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Murph Postman Test\",\n  \"mode\": \"For Time\",\n  \"equipment\": [\"pull-up bar\", \"weight vest\"],\n  \"exercises\": [\"1 mile run\", \"100 pull-ups\", \"200 push-ups\", \"300 squats\", \"1 mile run\"],\n  \"trainerTips\": [\"Pace yourself from the start\"]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/workouts",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "workouts"]
+            }
+          }
+        },
+        {
+          "name": "4. Actualizar Workout (PATCH)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{apiKey}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Murph Updated\",\n  \"mode\": \"For Time Updated\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/workouts/4a3a9acf-c2ec-4600-a457-3f1bfa52618b",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "workouts", "4a3a9acf-c2ec-4600-a457-3f1bfa52618b"]
+            }
+          }
+        },
+        {
+          "name": "5. Eliminar Workout (DELETE)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/workouts/ID_DEL_WORKOUT",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "workouts", "ID_DEL_WORKOUT"]
+            }
+          }
+        },
+        {
+          "name": "6. Obtener Records de un Workout",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/workouts/4a3a9acf-c2ec-4600-a457-3f1bfa52618b/records",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "workouts", "4a3a9acf-c2ec-4600-a457-3f1bfa52618b", "records"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Records",
+      "item": [
+        {
+          "name": "1. Obtener todos los Records",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/records",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "records"]
+            }
+          }
+        },
+        {
+          "name": "2. Obtener Record por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{apiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/records/4819e075-801a-471a-874b-6ca035dbf1a2",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "records", "4819e075-801a-471a-874b-6ca035dbf1a2"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
