@@ -2,6 +2,7 @@ node_modules/
 dist/
 *.log
 *.zip
+*.pem
 .env
 src/config/.env
 
