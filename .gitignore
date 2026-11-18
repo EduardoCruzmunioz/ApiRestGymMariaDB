@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.log
+*.zip
+.env
+src/config/.env
+
+# Ignorar archivos .md excepto el README
+*.md
+!README.md
